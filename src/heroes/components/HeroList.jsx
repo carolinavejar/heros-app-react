@@ -1,4 +1,4 @@
-import { getHerosByPublisher } from '../helpers/getHerosByPublisher'
+import { getHerosByPublisher } from '../helpers/'
 import { HeroCard } from './HeroCard'
 
 export const HeroList = ( {publisher} ) => {
