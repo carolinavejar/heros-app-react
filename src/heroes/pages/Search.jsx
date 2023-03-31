@@ -13,7 +13,10 @@ export const Search = () => {
 
   const { q = '' } = queryString.parse(location.search)
 
-const heros = getHerosByName(q)
+  const heros = getHerosByName(q)
+
+  const showSearch = (q.length === 0);
+  const showError = (q.length > 0) && heros.length === 0; 
 
   const { searchText, onInputChange } = useForm({
     searchText: ''
@@ -52,13 +55,27 @@ const heros = getHerosByName(q)
         <div className="col-5">
           <h4>Results</h4>
           <hr />
-          <div className="alert alert-primary">
-            Search a hero
-          </div>
 
-          <div className="alert alert-danger">
-            Not hero with <b> { q } </b>
-          </div>
+          {/* {
+            (q === '') ? 
+              <div className="alert alert-primary">
+                Search a hero
+              </div> : 
+            (heros.lenght === 0 ) &&
+              <div className="alert alert-danger">
+                Not hero with <b> { q } </b>
+              </div>
+          } */}
+
+            <div className="alert alert-primary animate__animated animate__fadeI" 
+            style= {{ display: showSearch ? '': 'none'}}>
+              Search a hero
+            </div> 
+
+            <div className="alert alert-danger animate__animated animate__fadeI" 
+            style= {{ display: showError ? '': 'none'}}>
+              Not hero with <b> { q } </b>
+            </div>
 
           {
             heros.map (hero => (
