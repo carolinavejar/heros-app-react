@@ -10,7 +10,7 @@ export const HeroList = ( {publisher} ) => {
             
             heroes.map(hero  => (
                 <li className="list-group-item d-flex justify-content-between">
-                    <HeroCard key= {hero.id} {...hero} />
+                    <HeroCard key = {hero.id} {...hero} />
                 </li>
             ))   
         }
